@@ -1,0 +1,409 @@
+/*Change the browser's default setting*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: white;
+    font-family: monospace;     /*Use monospace font for all text*/
+    width: 100%;
+    height:100%;
+    display: flex;
+    flex-direction: column;
+}
+a{
+    text-decoration: none;    /*Remove default a tag text affect*/
+}
+ul{
+    list-style: none;        /*Remove all list styles*/
+}
+
+.container{
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin:0;
+}
+
+/* Header */
+.header{
+    background-color: #00235B;  /*add background to navigation bar*/
+    position: sticky;             /*sticks to the top of the page while scrolling*/
+    top: 0;
+    width: 100%;                  /*covers the entire width of the viewport*/
+    z-index: 2;                   /*keep it at the top of the z-index*/
+}
+/* Logo */
+.logo{
+    display: inline-block;        /*make it inline-block*/
+    color: white;
+    font-size: 40px;
+    margin-left: 10px;
+}
+.logo:hover{
+    display: inline-block;
+    color: white;
+    font-size: 40px;
+    margin-left: 10px;
+}
+/*We will be styling the navigation menu from here onwards*/
+.nav{
+    width: 100%; /*covers entire width of the screen*/
+    height: 100%; /*covers entire height of the screen*/
+    position: fixed;
+    background-color: #00235B;
+    overflow: hidden; /*when you exceed the available space, you hide the content*/
+
+}
+.menu a{
+    display: block;
+    padding: 30px;
+    color: white;
+}
+.menu a:hover{
+    background-color: black; /*change text color to black on hover*/
+}
+.nav{
+    max-height: 0;
+    transition: max-height .5s ease-out;/*change height of the nav.Hide elements by default but reveal when the menu item is clicked*/
+}
+/* Menu Icon */
+.hamb{
+    cursor: pointer; /*to make that the element is clickable*/
+    float: right;  /*make it to the far right side of the containing element*/
+    padding: 30px 20px; /*add some padding*/
+}/* Style label tag */
+
+.hamb-line {
+    background: white; /*make the line white*/
+    display: block; /*setting it to block-level element to cover the entire width of the container*/
+    height: 2px; /*center hamline*/
+    position: relative;
+    width: 24px;
+
+} /* Style span tag */
+
+.hamb-line::before, /*add one line each before hamb-line to form a hamburger*/
+.hamb-line::after{
+    background: white;
+    content: '';
+    display: block;
+    height: 100%;
+    position: absolute;
+    transition: all .2s ease-out;
+    width: 100%;
+}
+.hamb-line::before{ 
+    top: 5px;
+}
+.hamb-line::after{
+    top: -5px;
+}
+
+.side-menu {
+    display: none;/*hide the checkbox*/
+} 
+/* Toggle menu icon */
+.side-menu:checked ~ nav{
+    max-height: 100%; /*covers the entire page when the buton is pressed*/
+}
+.side-menu:checked ~ .hamb .hamb-line {
+    background: transparent; /*hide the second line*/
+}
+.side-menu:checked ~ .hamb .hamb-line::before {
+    transform: rotate(-45deg); /*rotate by 45 degrees*/
+    top:0;
+}
+.side-menu:checked ~ .hamb .hamb-line::after {
+    transform: rotate(45deg); /*rotate by 45 degrees*/
+    top:0;
+}
+
+.active{
+    background-color: black;
+    color: white;
+}
+
+.intro-center{
+    text-align: center; /*make to the center of the screen*/
+}
+
+.intro-text{
+   margin-top:15%;
+   font-size:50px;
+   display: flex;
+   flex-direction: column;
+   color:white;
+}
+
+#button-me{
+    align-self:center;  /*align button at the center*/
+}
+
+.degree-size{
+    font-size: 50px;   /*font-size: 50px;*/
+    margin-left: 5%;
+    margin-top: 1%;
+}
+
+.experience-parent-heading{
+    margin-left: 2.5%;  /*set margin left*/
+    margin-top: 1%;
+    font-size:50px;
+    color: #FFF3E2;
+}
+
+
+.experience-container{
+    display: flex; /*make a flex container*/
+    flex-direction: column; /*make the items of the container arranged in column wise manner.Stacked in columns*/
+    min-height: 100vh; /*covers the entire viewport*/
+}
+
+
+.experience-container > .card-item{
+    position: relative; /*card items positioned according to the normal size of the container*/
+    background-color: #E74646;
+    margin-left:2%;
+    margin-top:2%;
+    margin-right:1%;    
+    font-size: 0.5em;
+    border-radius: 10px; /*adds rounded corners*/
+    padding: 10px;
+}
+
+.blog-container{
+    display: flex; /*makes a flex-box container*/
+    flex-direction: column;    
+}
+
+.blog-container > .blog-card-item{
+    position: relative; /*arrange elements in postion relative to the flex-container*/
+    border: 2px solid;
+    margin-left:2%;
+    margin-top:2%;
+    margin-right:1%;    
+    font-size: 0.5em;
+    border-radius: 10px;
+}
+
+
+.card::before{
+    position: absolute; /*position with respect to the ancestor*/
+    width: 10px;
+    height: 10px;
+    background: white;
+    border-radius: 999px;
+    left: -39px;
+    border: 3px solid orangered;
+  
+}
+
+.experience-heading{
+    font-size: 1em; /*font-size set according to the default*/
+}
+.experience-content{
+    font-size: 0.75em; /*font size 75% of the default*/
+}
+
+
+.skills-container{
+    display: flex;  /*make a flex container*/
+    flex-direction: column; /*make the items in the flex container arranged in a column*/
+    margin-left:10%;
+    margin-right:10%;
+    margin-top:10%;
+    min-height: 100vh; /*covers the entire viewport*/
+}
+.progress-bar{
+    height: 30px; /*height of the progress bar*/
+}
+
+.font-sizers{
+    font-size: 50px; /*default font-size for skills heading*/
+    color: white;
+}
+
+#contact-me{
+    text-align: center; /*align the size of the font to the center*/
+    font-size: 40px;
+    margin-top:10%;
+}
+
+.form-container{
+    height: 400px;
+    font-size:20;
+    display: flex; /*make flex container*/
+    flex-direction: row; /*set all items in row order fashion*/
+    align-items: center;
+    justify-content: space-evenly; /*even spacing between items of the flex-box container*/
+    min-height: 100vh;
+}
+
+input[type=text], select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+  }
+  
+  label {
+    padding: 12px 12px 12px 0;
+    display: inline-block;
+  }
+  
+  input[type=submit] {
+    background-color: #A6D0DD;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    float: right;
+  }
+  
+  input[type=submit]:hover {
+    background-color: black;
+  }
+  
+  .container {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+  }
+  
+  .col-25 { /*covers only label*/
+    float: left;
+    width: 25%;
+    margin-top: 6px;
+  }
+  
+  .col-75 { /*covers input*/
+    float: left;
+    width: 75%;
+    margin-top: 6px;
+  }
+  
+  label{/*label of the forms have white text*/
+    color:white;
+    font-size: 20;
+  }
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+
+  .education-container{
+    display: flex; /*make a flex container*/
+    flex-direction: column; /*arrange items in a columnwise fashion*/
+    font-size: 50px;
+    margin-top: 5%;
+    margin-left: 7.5%;
+    margin-right: 10%;
+    justify-content: center;
+  }
+
+  .education-container > .about-me-text{
+    font-size: 0.5em; /* Make font-size 50% of that of the parent*/
+    text-align: justify;
+    text-justify: inter-word;
+  }
+
+  footer{
+    margin-bottom: auto; /*automatically consume remain vertical space available*/
+    position: relative;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: white;
+    height: auto;
+    padding-top: 40px;
+    width:100%;
+    color: black;
+    align-items: center;
+    margin-top:5%;
+  }
+
+  .footer-content{
+    display: flex; /*make the flex container*/
+    align-items: center;
+    justify-content: center; /*flex-items centered along the main axis of the container*/
+    flex-direction: column; /*set the flex-direction as column*/
+    text-align: center; /*align the text to the center*/
+  }
+
+  .socials{
+    list-style: none; /*remove list styles*/
+    display: flex; /*flex container*/
+    align-items: center;
+    justify-content: center;
+    margin: 1rem 0 3rem 0;
+  }
+
+  .socials li{
+    margin: 0 10px;
+  }
+
+  .socials a{
+    text-decoration: none;
+    color: white;
+    padding: 5px;
+  }
+
+  .socials a i{
+    font-size: 1.1rem;
+    width:20px;
+    transition: color .4s ease;
+  }
+
+  .socials a:hover i{
+    color: blue;
+  }
+
+  .github-icon{
+    height: 40px; /*height and width of github icon*/
+    width: 40px;
+  }
+
+  .linkedin-icon{
+    height: 40px; /*height and width of linked-in icon*/
+    width: 40px;
+  }
+  /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+  @media screen and (max-width: 600px) {
+    .col-25, .col-75, input[type=submit] {
+      width: 100%;
+      margin-top: 0;
+    }
+  }
+
+
+/* Make this content responsive*/
+@media (min-width: 1100px) { /*minimum width to 1100px*/
+    .nav{
+        height:44px;
+        max-height: none;
+        top: 0;
+        position: relative;
+        float: right;
+        width: fit-content;
+        background-color: transparent;
+    }
+    .menu li{
+        float: left;
+    }
+    .menu a:hover{
+        background-color: transparent;
+        color: black;
+
+    }
+
+    .hamb{
+        display: none; /*make the hamburger icon disappear if the width > 1100px*/
+    }
+}
